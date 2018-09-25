@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <!--Prevent the content of jumbotron from smashing againsts sides with a second container-->
+        <div class="container">
+           <h1>Welcome to YelpCamp</h1>
+           <p>View our favorite campgrounds from all over the world</p>
+           <p>
+               <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+            </p>
+        </div>
+    </header>
+    
+    <!--Adding a temporary style tage in the div(class row) so that the varing photo heights won't mess up grid-->
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        
+        <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">
+            <!--making a thumbnail for the photos. Makes a card around it-->
+            <div class="thumbnail">
+                <img src="<%= campground.image %>">
+                <!--caption bootstrap class-->
+                <div class="caption">
+                    <h4> <%= campground.name %> </h4>
+                </div>
+                <p>
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    
+</div>
+<% include ../partials/footer %>

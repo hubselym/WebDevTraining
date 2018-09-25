@@ -1,0 +1,17 @@
+<!--Including partials - Templates for your templates-->
+<!--don't need to say header.ejs because we told app.js to assume views are ejs files-->
+<% include partials/header %>
+
+<h1>You fell in love with: <%=thingVar.toUpperCase()%> </h1>
+
+<% if(thingVar.toLowerCase() === "rusty"){ %>
+    <p>Good Choice! Rusty is the Best</p>
+<% } else { %>
+    <p>Bad Choice, you should have said Rusty</p>
+<% } %>
+
+<!--Two different types of ejs tags-->
+<!--With '=' it will place the evaluation in the html -->
+<p>P.S. this is the love.ejs file</p>
+
+<% include partials/footer %>
